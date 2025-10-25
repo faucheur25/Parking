@@ -16,12 +16,12 @@ ZIPCODE = os.environ.get("ZIPCODE")
 
 # --- CONFIGURATION CHROME HEADLESS (sans interface graphique) ---
 chrome_options = Options()
-options.add_argument("--headless=new")
-options.add_argument("--no-sandbox")
-options.add_argument("--disable-dev-shm-usage")
-options.add_argument("--disable-gpu")
-options.add_argument("--window-size=1920,1080")
-options.add_argument(f"--user-data-dir={tempfile.mkdtemp()}")  # profil temporaire
+chrome_options.add_argument("--headless=new")
+chrome_options.add_argument("--no-sandbox")
+chrome_options.add_argument("--disable-dev-shm-usage")
+chrome_options.add_argument("--disable-gpu")
+chrome_options.add_argument("--window-size=1920,1080")
+chrome_options.add_argument(f"--user-data-dir={tempfile.mkdtemp()}")  # profil temporaire
 
 # --- LANCEMENT DU NAVIGATEUR ---
 driver = webdriver.Chrome(options=chrome_options)
@@ -45,6 +45,7 @@ wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[data-testid='pay
 
 time.sleep(120)
 driver.quit()
+
 
 
 
