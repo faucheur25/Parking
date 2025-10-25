@@ -9,8 +9,9 @@ from selenium.webdriver.common.keys import Keys
 import time
 
 # --- PARAMÈTRES DE CONNEXION ---
-USERNAME = "000"    # ⬅️ Mets ton identifiant PayByPhone
-PASSWORD = "ooo"   # ⬅️ Mets ton mot de passe PayByPhone
+USERNAME = os.environ.get("USERNAME")
+PASSWORD = os.environ.get("PASSWORD")
+ZIPCODE = os.environ.get("ZIPCODE")
 
 # --- CONFIGURATION CHROME HEADLESS (sans interface graphique) ---
 chrome_options = Options()
@@ -42,4 +43,5 @@ wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[data-testid='pay
 
 time.sleep(120)
 driver.quit()
+
 
