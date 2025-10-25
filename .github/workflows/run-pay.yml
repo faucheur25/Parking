@@ -30,3 +30,8 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
           ZIPCODE: ${{ secrets.ZIPCODE }}
+      - name: Upload screenshot
+        uses: actions/upload-artifact@v3
+        with:
+          name: debug-screenshot
+          path: debug.png
