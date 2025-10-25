@@ -1,16 +1,28 @@
 name: Exécution automatique de Pay
+
 on:
   schedule:
-    - cron: "0 18 * * 6"
-  workflow_dispatch:
+    - cron: "0 18 * * 6"  # Tous les samedis à 20h UTC
+  workflow_dispatch:       # Permet un lancement manuel
+
 jobs:
   run-script:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.10"
-      - run: |
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Installer les dépendances
+        run: |
+          pip install --upgrade pip
+          pip install selenium
+
+      - name: Exécuter le script Pay
+        run: |
           python Pay.py
