@@ -26,3 +26,7 @@ jobs:
       - name: Exécuter le script Pay
         run: |
           python Pay.py
+         env:
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          ZIPCODE: ${{ secrets.ZIPCODE }}
