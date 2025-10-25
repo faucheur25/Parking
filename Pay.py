@@ -33,6 +33,7 @@ wait.until(EC.element_to_be_clickable((By.ID, "onetrust-reject-all-handler"))).c
 driver.find_element(By.ID, "username").send_keys(USERNAME)
 driver.find_element(By.ID, "password").send_keys(PASSWORD)
 wait.until(EC.element_to_be_clickable((By.XPATH, "//button[span[text()='Se connecter']]"))).click()
+driver.save_screenshot("debug.png")
 
 # --- STATIONNEMENT ---
 wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[data-testid='park-button']"))).click()
@@ -43,5 +44,6 @@ wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[data-testid='pay
 
 time.sleep(120)
 driver.quit()
+
 
 
