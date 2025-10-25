@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 import time
+import os
 
 # --- PARAMÈTRES DE CONNEXION ---
 USERNAME = os.environ.get("USERNAME")
@@ -44,6 +45,7 @@ wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[data-testid='pay
 
 time.sleep(120)
 driver.quit()
+
 
 
 
